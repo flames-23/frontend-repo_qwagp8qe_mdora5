@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=VT323&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,11 +12,14 @@
     --font-mona: 'Mona Sans', system-ui, sans-serif;
     --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
     --font-manrope: 'Manrope', system-ui, sans-serif;
+    --accent-color: #00E676;
   }
 
   html {
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    background: #FAFAFA;
+    color: #111111;
   }
 
   body {
@@ -22,7 +27,7 @@
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Custom utilities */
 @layer utilities {
   .animate-in {
     animation-name: animateIn;
@@ -43,4 +48,22 @@
     --tw-exit-translate-x: initial;
     --tw-exit-translate-y: initial;
   }
+
+  .animate-cursor {
+    animation: cursor-blink 1s steps(2, jump-none) infinite;
+  }
+
+  .animate-scanline {
+    animation: scanline 1.8s linear infinite;
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateX(-20%); }
+  100% { transform: translateX(120%); }
 }
